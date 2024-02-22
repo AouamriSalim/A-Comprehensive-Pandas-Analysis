@@ -1,0 +1,33 @@
+This Python code performs several data preprocessing tasks on a dataset related to a marketing campaign. Here's a description of the code:
+
+    Import Libraries:
+        The code begins by importing the necessary libraries, namely pandas and numpy.
+
+    Read CSV File:
+        The code reads a CSV file named "bank_marketing.csv" into a Pandas DataFrame called marketing.
+
+    Split Data into Tables:
+        The DataFrame is split into three separate tables: client, campaign, and economics, each containing specific columns of interest.
+
+    Data Cleaning - Client Dataset:
+        The "education" column in the client table is cleaned by replacing dots with underscores and transforming "unknown" values to NaN.
+        The "job" column is cleaned by removing dots.
+        Certain columns ("credit_default" and "mortgage") are converted to boolean data type.
+
+    Data Cleaning - Campaign Dataset:
+        The "campaign_outcome" column is converted to binary values (1 for "yes" and 0 for "no").
+        The "previous_outcome" column is mapped to binary values based on success, failure, or nonexistent outcomes.
+        The "month" column is capitalized.
+        A new "year" column is added with constant value "2022".
+        The "day" column is converted to a string.
+        A new "last_contact_date" column is created by combining "year," "month," and "day," and then converting it to a datetime format.
+        Columns related to outcomes ("campaign_outcome" and "previous_outcome") are converted to boolean data types.
+        Unnecessary columns ("month," "day," and "year") are dropped.
+
+    Save DataFrames to CSV Files:
+        The cleaned tables (client, campaign, and economics) are saved to individual CSV files ("client.csv," "campaign.csv," and "economics.csv") without including the index.
+
+    Print Client DataFrame:
+        The cleaned client DataFrame is printed.
+
+The overall purpose of this code is to clean and preprocess the marketing data, preparing it for further analysis or modeling tasks. The cleaned data is then stored in separate CSV files for ease of use and future reference.
