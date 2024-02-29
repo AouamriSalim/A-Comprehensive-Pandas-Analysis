@@ -1,0 +1,17 @@
+This Python code uses the Pandas library to perform data manipulation and aggregation operations on two DataFrames, 'pointage_df' and 'sous_famille_df', and then combines the results.
+
+Here's a breakdown of the code:
+
+Import the Pandas library and give it an alias 'pd'.
+Create example DataFrames 'pointage_df' and 'sous_famille_df' with sample data.
+Extract the year from the 'date' column in 'pointage_df' and create a new column 'year'.
+Filter 'pointage_df' for the year 2022 and where the 'cat' column is not null, resulting in 'filtered_pointage'.
+Perform a left join between 'filtered_pointage' and 'sous_famille_df' based on the first 5 characters of 'code_mat' and 'code_sfamille'.
+Group the merged DataFrame ('merged_df') by 'cat' and 'date', and calculate the sum of 'v_h_sv' for the first part of the union. Reset the index to create 'result1'.
+Create a second DataFrame 'result2' with columns 'cat', 'Montant_global', and 'date', using 'sous_famille_df' and 'pointage_df'.
+Merge 'result2' with 'sous_famille_df' based on the first 5 characters of 'code_mat' and 'code_sfamille'.
+Filter 'result2' for the year 2022 and where the 'cat' column is not null.
+Group 'result2' by 'cat' and 'date', and calculate the sum of 'Montant_global' for the second part of the union. Reset the index to create 'result2'.
+Concatenate 'result1' and 'result2' vertically and sort the resulting DataFrame 'final_result' by 'cat' and 'date'. Reset the index and drop the old index column.
+Print the final result.
+The code essentially performs a union of two aggregated datasets based on the 'cat' and 'date' columns and provides a final result DataFrame sorted by 'cat' and 'date'.

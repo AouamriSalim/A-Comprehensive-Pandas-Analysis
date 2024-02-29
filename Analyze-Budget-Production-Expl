@@ -1,0 +1,29 @@
+This Python code is manipulating a DataFrame using the pandas library. Let's break down the code step by step:
+
+    Importing libraries:
+        import pandas as pd: Imports the pandas library and assigns it the alias 'pd'.
+        import numpy as np: Imports the numpy library and assigns it the alias 'np'.
+
+    Pivoting the DataFrame for quantities:
+        melt function is used to unpivot or melt the DataFrame. It takes columns specified in id_vars and melts the rest into two columns - 'var_name' and 'value_name'.
+        quantities_df is created by melting the original DataFrame (budget_production) with specific columns ('Pole', 'Code_NT', 'act', 'ANNEE', 'CLE_PR') as identifier variables and the rest as 'MONT' and 'Q_propre'.
+        A new column 'MonthYear' is created by concatenating 'ANNEE' and 'MONT' columns, representing the month and year in a format like 'YYYYMM01'.
+
+    Handling other metrics:
+        A loop iterates through different metrics ('V_propre', 'ST', 'Q_Preste', 'V_Preste').
+        For each metric, a new DataFrame (metric_df) is created by melting the original DataFrame with specific columns.
+        The 'value_vars' parameter is used to select columns for different months (e.g., 'V_propre_1', 'V_propre_2', ..., 'V_propre_12').
+        Similar to the quantities DataFrame, a 'MonthYear' column is created.
+        These metric DataFrames are merged with the quantities DataFrame based on common columns ('Pole', 'Code_NT', 'act', 'MonthYear').
+
+    Reordering columns:
+        A new DataFrame (result_df) is created by selecting and reordering columns from the quantities DataFrame.
+        The order is: 'Pole', 'Code_NT', 'act', 'MonthYear', 'Q_propre', 'V_propre', 'ST', 'Q_Preste', 'V_Preste', 'CLE_PR'.
+
+    Sorting the result:
+        The sort_values method is used to sort the result DataFrame based on columns 'Pole', 'act', and 'MonthYear'.
+
+    Displaying the result:
+        The sorted result DataFrame is printed to the console using print(result_df).
+
+In summary, this code is reshaping and merging DataFrames to organize data related to different metrics for each month and year, primarily dealing with financial or production-related information. The final result is a DataFrame with the specified columns, sorted by 'Pole', 'act', and 'MonthYear'.
