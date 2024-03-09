@@ -43,7 +43,7 @@ comparison = pd.DataFrame({'Original Montant': y_test, 'Predicted Montant': y_pr
 print(comparison.head(10))  # Displaying the first 10 rows for comparison
 
 '''
-
+''' 
 #K-MEANS
 import pandas as pd
 from sklearn.cluster import KMeans
@@ -65,11 +65,11 @@ plt.xlabel('N_compte')
 plt.ylabel('Montant')
 plt.title('K-Means Clustering')
 plt.show()
+'''
 
 
 
 
-''' 
 #SVM
 import pandas as pd
 from sklearn.model_selection import train_test_split
@@ -104,4 +104,3 @@ print(f'SVM - Mean Squared Error: {mse_svm}')
 new_data_svm = pd.DataFrame({'N_compte': [75]})
 prediction_svm = svm_model.predict(new_data_svm)
 print(f'SVM - Predicted Montant: {prediction_svm[0]}')
-'''
